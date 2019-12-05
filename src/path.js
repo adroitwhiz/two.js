@@ -710,7 +710,7 @@
     toObject: function() {
 
       var result = {
-        vertices: _.map(this.vertices, function(v) {
+        vertices: this.vertices.map(function(v) {
           return v.toObject();
         })
       };
