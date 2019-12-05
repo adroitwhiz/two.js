@@ -969,7 +969,7 @@
 
       }
 
-      if (_.isNull(a) || _.isNull(b)) {
+      if (a === null || b === null) {
         return null;
       }
 

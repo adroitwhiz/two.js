@@ -41,9 +41,6 @@
     isBoolean: function(obj) {
       return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
     },
-    isNull: function(obj) {
-      return obj === null;
-    },
     isUndefined: function(obj) {
       return obj === void 0;
     },
@@ -944,7 +941,7 @@
                 : (node.getCTM ? node.getCTM() : null);
 
               // Might happen when transform string is empty or not valid.
-              if (_.isNull(m)) break;
+              if (m === null) break;
 
               // // Option 1: edit the underlying matrix and don't force an auto calc.
               // var m = node.getCTM();
@@ -1682,12 +1679,12 @@
             var opacity = child.getAttribute('stop-opacity');
             var style = child.getAttribute('style');
 
-            if (_.isNull(color)) {
+            if (color === null) {
               var matches = style ? style.match(/stop\-color\:\s?([\#a-fA-F0-9]*)/) : false;
               color = matches && matches.length > 1 ? matches[1] : undefined;
             }
 
-            if (_.isNull(opacity)) {
+            if (opacity === null) {
               var matches = style ? style.match(/stop\-opacity\:\s?([0-9\.\-]*)/) : false;
               opacity = matches && matches.length > 1 ? parseFloat(matches[1]) : 1;
             } else {
@@ -1742,12 +1739,12 @@
             var opacity = child.getAttribute('stop-opacity');
             var style = child.getAttribute('style');
 
-            if (_.isNull(color)) {
+            if (color === null) {
               var matches = style ? style.match(/stop\-color\:\s?([\#a-fA-F0-9]*)/) : false;
               color = matches && matches.length > 1 ? matches[1] : undefined;
             }
 
-            if (_.isNull(opacity)) {
+            if (opacity === null) {
               var matches = style ? style.match(/stop\-opacity\:\s?([0-9\.\-]*)/) : false;
               opacity = matches && matches.length > 1 ? parseFloat(matches[1]) : 1;
             } else {
