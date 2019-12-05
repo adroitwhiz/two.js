@@ -29,11 +29,8 @@
       bind: Function.prototype.bind,
       create: Object.create
     },
-    isNumber: function(obj) {
-      return toString.call(obj) === '[object Number]';
-    },
     isNaN: function(obj) {
-      return _.isNumber(obj) && obj !== +obj;
+      return typeof obj === 'number' && obj !== +obj;
     },
     isUndefined: function(obj) {
       return obj === void 0;
@@ -2554,7 +2551,7 @@
      */
     makeArrow: function(x1, y1, x2, y2, size) {
 
-      var headlen = _.isNumber(size ) ? size : 10;
+      var headlen = typeof size  === 'number' ? size : 10;
 
       var angle = Math.atan2(y2 - y1, x2 - x1);
 
@@ -2699,7 +2696,7 @@
         points = [];
         for (var i = 0; i < l; i+=2) {
           var x = arguments[i];
-          if (!_.isNumber(x)) {
+          if (!(typeof x === 'number')) {
             break;
           }
           var y = arguments[i + 1];
@@ -2771,7 +2768,7 @@
         points = [];
         for (var i = 0; i < l; i+=2) {
           var x = arguments[i];
-          if (!_.isNumber(x)) {
+          if (!(typeof x === 'number')) {
             break;
           }
           var y = arguments[i + 1];

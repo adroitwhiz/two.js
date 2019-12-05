@@ -221,7 +221,7 @@
             ctx.lineCap = cap;
           }
         }
-        if (_.isNumber(opacity)) {
+        if (typeof opacity === 'number') {
           ctx.globalAlpha = opacity;
         }
 
@@ -427,7 +427,7 @@
 
         // Expand borders
 
-        if (_.isNumber(border)) {
+        if (typeof border === 'number') {
           top -= border;
           left -= border;
           right += border;
@@ -628,7 +628,7 @@
             ctx.lineWidth = linewidth;
           }
         }
-        if (_.isNumber(opacity)) {
+        if (typeof opacity === 'number') {
           ctx.globalAlpha = opacity;
         }
         if (dashes && dashes.length > 0) {

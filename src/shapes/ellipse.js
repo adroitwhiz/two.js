@@ -19,7 +19,7 @@
    */
   var Ellipse = Two.Ellipse = function(ox, oy, rx, ry, resolution) {
 
-    if (!_.isNumber(ry)) {
+    if (!(typeof ry === 'number')) {
       ry = rx;
     }
 
