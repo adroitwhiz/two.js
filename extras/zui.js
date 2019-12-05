@@ -8,6 +8,19 @@
 
   };
 
+  var toArray = function(obj) {
+    if (!obj) {
+      return [];
+    }
+    if (Array.isArray(obj)) {
+      return slice.call(obj);
+    }
+    if (isArrayLike(obj)) {
+      return Array.prototype.map.call(obj, function(item) {return item;});
+    }
+    return Object.keys(obj).map(function(key) {return obj[key];});
+  }
+
   _.extend(Surface.prototype, {
 
     limits: function(min, max) {
@@ -138,14 +151,14 @@
       this.updateOffset();
       var m = this.surfaceMatrix.inverse();
       var n = this.viewportOffset.matrix.inverse().multiply(x, y, 1);
-      return m.multiply.apply(m, _.toArray(n));
+      return m.multiply.apply(m, toArray(n));
     },
 
     surfaceToClient: function(v) {
       this.updateOffset();
       var vo = this.viewportOffset.matrix.clone();
-      var sm = this.surfaceMatrix.multiply.apply(this.surfaceMatrix, _.toArray(v));
-      return vo.multiply.apply(vo, _.toArray(sm));
+      var sm = this.surfaceMatrix.multiply.apply(this.surfaceMatrix, toArray(v));
+      return vo.multiply.apply(vo, toArray(sm));
     },
 
     /**

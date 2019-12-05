@@ -32,18 +32,6 @@
       var type = typeof obj;
       return type === 'function' || type === 'object' && !!obj;
     },
-    toArray: function(obj) {
-      if (!obj) {
-        return [];
-      }
-      if (Array.isArray(obj)) {
-        return slice.call(obj);
-      }
-      if (isArrayLike(obj)) {
-        return Array.prototype.map.call(obj, function(item) {return item;});
-      }
-      return Object.keys(obj).map(function(key) {return obj[key];});
-    },
     bind: function(func, ctx) {
       var natural = Function.prototype.bind;
       if (natural && func.bind === natural) {
@@ -2437,7 +2425,7 @@
 
       var objects = o;
       if (!(objects instanceof Array)) {
-        objects = _.toArray(arguments);
+        objects = Array.prototype.slice.call(arguments);
       }
 
       this.scene.add(objects);
@@ -2455,7 +2443,7 @@
 
       var objects = o;
       if (!(objects instanceof Array)) {
-        objects = _.toArray(arguments);
+        objects = Array.prototype.slice.call(arguments);
       }
 
       this.scene.remove(objects);
@@ -2877,7 +2865,7 @@
 
       var objects = o;
       if (!(objects instanceof Array)) {
-        objects = _.toArray(arguments);
+        objects = Array.prototype.slice.call(arguments);
       }
 
       var group = new Two.Group();
