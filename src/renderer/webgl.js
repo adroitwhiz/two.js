@@ -19,7 +19,7 @@
 
     isHidden: /(undefined|none|transparent)/i,
 
-    canvas: (root.document ? root.document.createElement('canvas') : { getContext: _.identity }),
+    canvas: (root.document ? root.document.createElement('canvas') : { getContext: function() {} }),
 
     alignments: {
       left: 'start',
