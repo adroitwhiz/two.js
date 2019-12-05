@@ -82,7 +82,7 @@
       if (!obj) {
         return [];
       }
-      if (_.isArray(obj)) {
+      if (Array.isArray(obj)) {
         return slice.call(obj);
       }
       if (isArrayLike(obj)) {
@@ -1544,7 +1544,7 @@
             }
 
             if (result) {
-              if (_.isArray(result)) {
+              if (Array.isArray(result)) {
                 points = points.concat(result);
               } else {
                 points.push(result);
@@ -2766,7 +2766,7 @@
     makeCurve: function(p) {
 
       var l = arguments.length, points = p;
-      if (!_.isArray(p)) {
+      if (!Array.isArray(p)) {
         points = [];
         for (var i = 0; i < l; i+=2) {
           var x = arguments[i];
@@ -2838,7 +2838,7 @@
     makePath: function(p) {
 
       var l = arguments.length, points = p;
-      if (!_.isArray(p)) {
+      if (!Array.isArray(p)) {
         points = [];
         for (var i = 0; i < l; i+=2) {
           var x = arguments[i];
