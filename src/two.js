@@ -47,9 +47,6 @@
     isElement: function(obj) {
       return !!(obj && obj.nodeType === 1);
     },
-    isArray: Array.isArray || function(obj) {
-      return toString.call(obj) === '[object Array]';
-    },
     isObject: function(obj) {
       var type = typeof obj;
       return type === 'function' || type === 'object' && !!obj;
