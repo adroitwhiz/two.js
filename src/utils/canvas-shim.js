@@ -1,4 +1,4 @@
-import CanvasRenderer from '../renderer/canvas';
+import CanvasRenderer from '../renderer/canvas.js';
 
 var CanvasShim = {
 
