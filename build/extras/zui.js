@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('two.js.js')) :
-  typeof define === 'function' && define.amd ? define(['two.js.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('two.js')) :
+  typeof define === 'function' && define.amd ? define(['two.js'], factory) :
   (global = global || self, global.ZUI = factory(global.Two));
 }(this, (function (Two) { 'use strict';
 
